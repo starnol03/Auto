@@ -115,7 +115,9 @@ def prepareSign(user):
    #     return
 
     print('已加载用户', user['alias'], '即将开始打卡')
+    print('当前打卡时间：',time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
 
+    
     headers["phone"] = user["deviceType"]
 
     res, token = getToken()
