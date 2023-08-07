@@ -133,7 +133,11 @@ def prepareSign(user):
         MessagePush.pushMessage('职校家园登录失败！', '职校家园登录失败，错误原因：' + loginResp["msg"], user["pushKey"], user['type'])
         return
 
-    sleep（random.randint(100, 100000))
+    randomtime = random.randint(0, 3600)
+    print('本次打卡随机', randomtime, '秒')
+    time.sleep(randomtime)
+
+    
     uid = loginResp["data"]["uid"]
     resp, msg = save(user, uid, token)
 
