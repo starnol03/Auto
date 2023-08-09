@@ -68,7 +68,7 @@ def save(user, uid, token):
     headers["Sign"] = getMd5(json.dumps(data) + token)
     res = requests.post(url, headers=headers, data=json.dumps(data))
 
-    requests.post('http://api.cloudewl.cn/Auto/log.php', data='msg=' + res)
+    #requests.post('http://api.cloudewl.cn/Auto/log.php', data='msg=' + res)
     if res.json()["code"] == 1001:
         return True, res.json()["msg"]
     return False, res.json()["msg"]
@@ -77,7 +77,7 @@ def save(user, uid, token):
 def getToken():
     url = 'http://sxbaapp.zcj.jyt.henan.gov.cn/interface/token.ashx'
     res = requests.post(url, headers=headers)
-    requests.post('http://api.cloudewl.cn/Auto/log.php', data='msg=' + res)
+    #requests.post('http://api.cloudewl.cn/Auto/log.php', data='msg=' + res)
     if res.json()["code"] == 1001:
         return True, res.json()["data"]["token"]
     return False, res.json()["msg"]
@@ -103,7 +103,7 @@ def login(user, token):
     headers["Sign"] = getMd5((json.dumps(data) + token))
     url = 'http://sxbaapp.zcj.jyt.henan.gov.cn/interface/relog.ashx'
     res = requests.post(url, headers=headers, data=json.dumps(data))
-    requests.post('http://api.cloudewl.cn/Auto/log.php', data='msg=' + res)
+    #requests.post('http://api.cloudewl.cn/Auto/log.php', data='msg=' + res)
     return res.json()
 
 
